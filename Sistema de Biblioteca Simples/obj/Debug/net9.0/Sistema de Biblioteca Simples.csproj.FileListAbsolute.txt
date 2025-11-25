@@ -12,3 +12,4 @@ C:\Users\Micro\Documents\Estudos\Sistema-de-Biblioteca-Simples\Sistema de Biblio
 C:\Users\Micro\Documents\Estudos\Sistema-de-Biblioteca-Simples\Sistema de Biblioteca Simples\obj\Debug\net9.0\Sistema de Biblioteca Simples.pdb
 C:\Users\Micro\Documents\Estudos\Sistema-de-Biblioteca-Simples\Sistema de Biblioteca Simples\obj\Debug\net9.0\Sistema de Biblioteca Simples.genruntimeconfig.cache
 C:\Users\Micro\Documents\Estudos\Sistema-de-Biblioteca-Simples\Sistema de Biblioteca Simples\obj\Debug\net9.0\ref\Sistema de Biblioteca Simples.dll
+C:\Users\Micro\Documents\Estudos\Sistema-de-Biblioteca-Simples\Sistema de Biblioteca Simples\obj\Debug\net9.0\Sistema de Biblioteca Simples.sourcelink.json
