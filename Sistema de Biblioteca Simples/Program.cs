@@ -11,7 +11,8 @@ namespace SistemaBiblioteca
             string[] mangas = {"Berserk", "Terra das Gemas", "Boa Noite Punpun", "Monster", "One Piece"};
             string[] estado_manga = {"Disponivel", "Disponivel", "Disponivel", "Disponivel", "Disponivel"};
             int manga_disponivel = 0;
-            int opcao;
+            bool erro = false;
+            int opcao, opcao_emprestimo;
 
             do
             {
@@ -47,17 +48,145 @@ namespace SistemaBiblioteca
                             else
                             {
                                 Console.WriteLine("Erro!!!!");
+                                erro = true;
                                 break;
+                            }
+
+                            if (manga_disponivel < 0)
+                            {
+                                manga_disponivel = 0;
                             }
                         }
 
-                        if (manga_disponivel <= 0)
+                        if (erro == true)
                         {
-                            Console.WriteLine("Não Temos mangás disponiveis, volte mais tarde.");
-                        }
+                            Console.WriteLine("O programa sera encerrado!!!!");
+                            Environment.Exit(0);
+                        } 
                         else
                         {
-                            Console.WriteLine("Temos mangás disponiveis");
+                            if (manga_disponivel <= 0)
+                            {
+                                Console.WriteLine("Não temos mangás disponiveis, volte mais tarde.");
+                            } 
+                            else
+                            {
+                                do{
+                                    for (int i = 0; i < mangas.Length; i++)
+                                    {
+                                        Console.WriteLine($"{i + 1} - {mangas[i]} || {estado_manga[i]}");
+                                    }
+                                    Console.WriteLine("0 - Voltar.");
+                                    
+                                    Console.WriteLine("Digite o número do mangá que você quer pegar emprestado: ");
+                                    opcao_emprestimo = int.Parse(Console.ReadLine());
+
+                                    switch (opcao_emprestimo)
+                                    {
+                                        case 1:
+                                            if (estado_manga[opcao_emprestimo - 1] == "Disponivel")
+                                            {
+                                                Console.WriteLine($"Você pegou {mangas[opcao_emprestimo - 1]} emprestado.");
+                                                estado_manga[opcao_emprestimo - 1] = "Emprestado";
+                                                manga_disponivel--;
+                                            } 
+                                            else if (estado_manga[opcao_emprestimo - 1] == "Emprestado")
+                                            {
+                                                Console.WriteLine("Esse mangá não esta disponivel para emprestimo no momento");
+                                            } 
+                                            else
+                                            {
+                                                Console.WriteLine("ERRO!!!! O Programa será fechado!!!!!!");
+                                                Environment.Exit(0);
+                                            }
+                                            break;
+                                        case 2:
+                                            if (estado_manga[opcao_emprestimo - 1] == "Disponivel")
+                                            {
+                                                Console.WriteLine($"Você pegou {mangas[opcao_emprestimo - 1]} emprestado.");
+                                                estado_manga[opcao_emprestimo - 1] = "Emprestado";
+                                                manga_disponivel--;
+                                            } 
+                                            else if (estado_manga[opcao_emprestimo - 1] == "Emprestado")
+                                            {
+                                                Console.WriteLine("Esse mangá não esta disponivel para emprestimo no momento");
+                                            } 
+                                            else
+                                            {
+                                                Console.WriteLine("ERRO!!!! O Programa será fechado!!!!!!");
+                                                Environment.Exit(0);
+                                            }
+                                            break;
+                                        case 3:
+                                            if (estado_manga[opcao_emprestimo - 1] == "Disponivel")
+                                            {
+                                                Console.WriteLine($"Você pegou {mangas[opcao_emprestimo - 1]} emprestado.");
+                                                estado_manga[opcao_emprestimo - 1] = "Emprestado";
+                                                manga_disponivel--;
+                                            } 
+                                            else if (estado_manga[opcao_emprestimo - 1] == "Emprestado")
+                                            {
+                                                Console.WriteLine("Esse mangá não esta disponivel para emprestimo no momento");
+                                            } 
+                                            else
+                                            {
+                                                Console.WriteLine("ERRO!!!! O Programa será fechado!!!!!!");
+                                                Environment.Exit(0);
+                                            }
+                                            break;
+                                        case 4:
+                                            if (estado_manga[opcao_emprestimo - 1] == "Disponivel")
+                                            {
+                                                Console.WriteLine($"Você pegou {mangas[opcao_emprestimo - 1]} emprestado.");
+                                                estado_manga[opcao_emprestimo - 1] = "Emprestado";
+                                                manga_disponivel--;
+                                            } 
+                                            else if (estado_manga[opcao_emprestimo - 1] == "Emprestado")
+                                            {
+                                                Console.WriteLine("Esse mangá não esta disponivel para emprestimo no momento");
+                                            } 
+                                            else
+                                            {
+                                                Console.WriteLine("ERRO!!!! O Programa será fechado!!!!!!");
+                                                Environment.Exit(0);
+                                            }
+                                            break;
+                                        case 5:
+                                            if (estado_manga[opcao_emprestimo - 1] == "Disponivel")
+                                            {
+                                                Console.WriteLine($"Você pegou {mangas[opcao_emprestimo - 1]} emprestado.");
+                                                estado_manga[opcao_emprestimo - 1] = "Emprestado";
+                                                manga_disponivel--;
+                                            } 
+                                            else if (estado_manga[opcao_emprestimo - 1] == "Emprestado")
+                                            {
+                                                Console.WriteLine("Esse mangá não esta disponivel para emprestimo no momento");
+                                            } 
+                                            else
+                                            {
+                                                Console.WriteLine("ERRO!!!! O Programa será fechado!!!!!!");
+                                                Environment.Exit(0);
+                                            }
+                                            break;
+                                        case 0:
+                                            break;
+                                        default:
+                                            Console.WriteLine("Opção incorreta!!!!");
+                                            break;
+                                    }
+
+                                    if (manga_disponivel < 0)
+                                    {
+                                        manga_disponivel = 0;
+                                    }
+
+                                    if (manga_disponivel == 0)
+                                    {
+                                        Console.WriteLine("Não temos mangás disponiveis, volte mais tarde.");
+                                        break;
+                                    }
+                                } while(opcao_emprestimo != 0);
+                            }
                         }
                         
                         break;
