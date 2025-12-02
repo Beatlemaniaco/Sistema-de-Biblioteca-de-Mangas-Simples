@@ -15,8 +15,8 @@ namespace SistemaBiblioteca
             string[] mangas = {"Berserk", "Terra das Gemas", "Boa Noite Punpun", "Monster", "One Piece"};
             string[] estado_manga = {"Disponivel", "Disponivel", "Emprestado", "Disponivel", "Emprestado"};
             int[] opcao_emprestado = {0, 0 ,0 , 0, 0};
-            int manga_disponivel = 0;
-            int manga_emprestado = 0;
+            double manga_disponivel = 0;
+            double manga_emprestado = 0;
             bool erro = false;
             int opcao, opcao_emprestimo, opcao_devolver, numero_opcao = 0;
             int contador = 0;
@@ -306,7 +306,33 @@ namespace SistemaBiblioteca
                         } while (pesquisa != "0");
                         break;
                     case 5:
-                        Console.WriteLine("Estatisticas.......");
+                        for (int i = 0; i < mangas.Length; i++)
+                        {
+                            if (estado_manga[i] == "Disponivel")
+                            {
+                                manga_disponivel++;
+                            }
+                            else if (estado_manga[i] == "Emprestado")
+                            {
+                                manga_emprestado++;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Erro!!!!");
+                                erro = true;
+                                break;
+                            }
+                        }
+
+                        if (erro == true)
+                        {
+                            Console.WriteLine("O programa sera encerrado!!!!");
+                            Environment.Exit(0);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Mangás disponiveis: {(manga_disponivel / mangas.Length) * 100} % || Mangas emprestados: {(manga_emprestado / mangas.Length) * 100} %");
+                        }
                         break;
                     case 0:
                         Console.WriteLine("Volte Sempre.");
